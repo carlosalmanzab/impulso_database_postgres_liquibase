@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-enum-tipo_identificacion
+      author: carlos.almanza
+      changes:
+      - sql:
+          sql: | 
+            CREATE TYPE "referenciales"."tipo_identificacion" AS ENUM (
+            'CEDULA',
+            'PASAPORTE',
+            'CEDULA_EXTRANJERA',
+            'TARJETA_IDENTIDAD');

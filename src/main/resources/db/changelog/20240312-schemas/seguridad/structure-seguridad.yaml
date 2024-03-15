@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/20240312-schemas/seguridad/schema/create-schema-seguridad.yaml
+  - include:
+      file: db/changelog/20240312-schemas/seguridad/enums/create-enum-roles.yaml
+  - include:
+      file: db/changelog/20240312-schemas/seguridad/tables/create-table-usuario.yaml
+  - include:
+      file: db/changelog/20240312-schemas/seguridad/triggers/trigger-update_fecha_actualizacion_usuario.yaml

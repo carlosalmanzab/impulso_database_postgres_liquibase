@@ -1,0 +1,7 @@
+databaseChangeLog:
+- changeSet:
+    id: create-schema-inventario
+    author: carlos.alamnza
+    changes:
+       - sql: 
+           sql: CREATE SCHEMA "inventario";

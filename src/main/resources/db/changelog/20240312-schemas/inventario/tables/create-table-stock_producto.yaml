@@ -1,0 +1,44 @@
+databaseChangeLog:
+- changeSet:
+    id: create-table-stock_producto
+    author: carlos.almanza
+    changes:
+    - createTable:
+        schemaName: inventario
+        tableName: stock_producto
+        columns:
+        - column:
+            name: id
+            type: SERIAL
+            constraints:
+              primaryKey: true
+        - column:
+            name: articulo
+            type: VARCHAR(255)
+        - column:
+            name: entrada
+            type: decimal
+        - column:
+            name: salida
+            type: decimal
+        - column:
+            name: stock
+            type: decimal
+        - column:
+            name: fecha_creacion
+            type: timestamp
+            constraints:
+              defaultValue: CURRENT_TIMESTAMP
+        - column:
+            name: fecha_actualizacion
+            type: timestamp
+            constraints:
+              defaultValue: CURRENT_TIMESTAMP
+        - column:
+            name: elminado
+            type: boolean
+        - column:
+            name: usuario_id
+            type: UUID
+            constraints:
+              notNull: true

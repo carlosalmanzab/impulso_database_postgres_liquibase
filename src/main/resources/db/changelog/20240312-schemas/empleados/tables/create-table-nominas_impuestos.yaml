@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-nominas_impuestos
+      author: carlos.alamnza
+      changes:
+      - createTable:
+          schemaName: empleados
+          tableName: nominas_impuestos
+          columns:
+            - column:
+                name: id
+                type: SERIAL
+                constraints:
+                  primaryKey: true
+            - column:
+                name: nomina_id
+                type: integer
+                constraints:
+                  notNull: true
+            - column:
+                name: impuesto_id
+                type: integer
+                constraints:
+                  notNull: true
+          

@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/20240312-schemas/empleados/schema/create-schema-empleados.yaml
+  - include:
+      file: db/changelog/20240312-schemas/empleados/tables/create-table-empleado.yaml
+  - include:
+      file: db/changelog/20240312-schemas/empleados/tables/create-table-impuesto.yaml
+  - include:
+      file: db/changelog/20240312-schemas/empleados/tables/create-table-nomina.yaml
+  - include:
+      file: db/changelog/20240312-schemas/empleados/tables/create-table-nominas_impuestos.yaml
+  - include:
+      file: db/changelog/20240312-schemas/empleados/triggers/trigger-update_fecha_actualizacion_empleado.yaml
+  - include:
+      file: db/changelog/20240312-schemas/empleados/triggers/trigger-update_fecha_actualizacion_impuesto.yaml
+  - include:
+      file: db/changelog/20240312-schemas/empleados/triggers/trigger-update_fecha_actualizacion_nomina.yaml

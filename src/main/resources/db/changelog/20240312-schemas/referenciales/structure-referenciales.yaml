@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/20240312-schemas/referenciales/schema/create-schema-referenciales.yaml
+  - include:
+      file: db/changelog/20240312-schemas/referenciales/enums/create-enum-tipo_identificacion.yaml
+  - include:
+      file: db/changelog/20240312-schemas/referenciales/tables/create-table-departamento.yaml
+  - include:
+      file: db/changelog/20240312-schemas/referenciales/tables/create-table-municipio.yaml
+  - include:
+      file: db/changelog/20240312-schemas/referenciales/tables/create-table-direccion.yaml
+  - include:
+      file: db/changelog/20240312-schemas/referenciales/triggers/trigger-update_fecha_actualizacion_direccion.yaml

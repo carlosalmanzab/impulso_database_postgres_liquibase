@@ -1,0 +1,43 @@
+databaseChangeLog:
+- changeSet:
+    id: create-table-direccion
+    author: carlos.almanza
+    changes:
+     - createTable:
+         schemaName: "referenciales"
+         tableName: "direccion"
+         columns:
+         - column:
+             name: id
+             type: SERIAL
+             constraints:
+               primaryKey: true
+         - column:
+             name: calle
+             type: varchar(255)
+             constraints:
+               notNull: true
+         - column:
+             name: departamento_id
+             type: integer
+             constraints:
+               notNull: true
+         - column:
+             name: municipio_id
+             type: integer
+             constraints:
+               notNull: true
+         - column:
+             name: fecha_creacion
+             type: timestamp
+             constraints:
+               defaultValue: CURRENT_TIMESTAMP
+         - column:
+             name: fecha_actualizacion
+             type: timestamp
+             constraints:
+               defaultValue: CURRENT_TIMESTAMP
+         - column:
+             name: detalles
+             type: text
+

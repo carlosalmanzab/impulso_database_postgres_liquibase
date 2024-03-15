@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/20240312-schemas/inventario/schema/create-schema-inventario.yaml
+  - include:
+      file: db/changelog/20240312-schemas/inventario/tables/create-table-materia_prima.yaml
+  - include:
+      file: db/changelog/20240312-schemas/inventario/tables/create-table-stock_producto.yaml
+  - include:
+      file: db/changelog/20240312-schemas/inventario/triggers/trigger-update_fecha_actualizacion_materia_prima.yaml
+  - include:
+      file: db/changelog/20240312-schemas/inventario/triggers/trigger-update_fecha_actualizacion_stock_producto.yaml

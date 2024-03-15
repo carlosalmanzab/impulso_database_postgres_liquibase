@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-nomina
+      author: carlos.alamnza
+      changes:
+       - createTable:
+           schemaName: empleados 
+           tableName: nomina
+           columns:
+             - column:
+                 name: id
+                 type: SERIAL
+                 constraints:
+                   primaryKey: true
+             - column:
+                 name: empleado_id
+                 type: UUID
+                 constraints:
+                   notNull: true
+             - column:
+                 name: salario_base
+                 type: DECIMAL(18,2)
+             - column:
+                 name: bonus
+                 type: DECIMAL(18,2)
+             - column:
+                 name: fecha_creacion
+                 type: TIMESTAMP
+                 defaultValueComputed: CURRENT_TIMESTAMP
+             - column:
+                 name: fecha_actualizacion
+                 type: TIMESTAMP
+                 defaultValueComputed: CURRENT_TIMESTAMP
+          

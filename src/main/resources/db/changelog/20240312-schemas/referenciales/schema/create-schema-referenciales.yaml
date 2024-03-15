@@ -1,0 +1,7 @@
+databaseChangeLog:
+- changeSet:
+    id: create-schema-referenciales
+    author: carlos.almanza
+    changes:
+     - sql:
+         sql: CREATE SCHEMA "referenciales";

@@ -1,0 +1,60 @@
+databaseChangeLog:
+- changeSet:
+    id: create-table-empleados
+    author: carlos.almanza
+    changes:
+    - createTable:
+        schemaName: empleados
+        tableName: empleado
+        columns:
+        - column:
+            name: id
+            type: UUID
+            constraints:
+              primaryKey: true
+              defaultvalueComputed: uuid_generate_v4()
+        - column:
+            name: identificacion
+            type: integer
+            constraints:
+              unique: true
+        - column:
+            name: tipo_identificacion
+            type: referenciales.tipo_identificacion
+        - column:
+            name: primer_nombre
+            type: varchar(45)
+        - column:
+            name: segundo_nombre
+            type: varchar(45)
+        - column:
+            name: primer_apellido
+            type: varchar(45)
+        - column:
+            name: segundo_apellido
+            type: varchar(45)
+        - column:
+            name: numero_telefono
+            type: varchar(45)
+            constraints:
+              unique: true
+        - column:
+            name: segundo_numero_telefono
+            type: varchar(45)
+        - column:
+            name: correo_electronico
+            type: varchar(45)
+            constraints:
+              unique: true
+        - column:
+            name: direccion_id
+            type: integer
+        - column:
+            name: fecha_creacion
+            type: timestamp
+            defaultValueComputed: CURRENT_TIMESTAMP
+        - column:
+            name: fecha_actualizacion
+            type: timestamp
+            defaultValueComputed: CURRENT_TIMESTAMP
+        

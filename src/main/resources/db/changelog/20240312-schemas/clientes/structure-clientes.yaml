@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/20240312-schemas/clientes/schema/create-schema-clientes.yaml
+  - include:
+      file: db/changelog/20240312-schemas/clientes/tables/create-table-cliente.yaml
+  - include:
+      file: db/changelog/20240312-schemas/clientes/tables/create-table-pago.yaml
+  - include:
+      file: db/changelog/20240312-schemas/clientes/tables/create-table-cartera.yaml
+  - include:
+      file: db/changelog/20240312-schemas/clientes/triggers/trigger-update_fecha_actualizacion_cliente.yaml
+  - include:
+      file: db/changelog/20240312-schemas/clientes/triggers/trigger-update_fecha_actualizacion_cartera.yaml
+  - include:
+      file: db/changelog/20240312-schemas/clientes/triggers/trigger-update_fecha_actualziacion_pago.yaml

@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-departamento
+      author: carlos.alamnza
+      changes:
+       - createTable:
+           schemaName: "referenciales"
+           tableName: "departamento"
+           columns:
+            - column:
+                name: id
+                type: SERIAL
+                constraints:
+                  primaryKey: true
+            - column:
+                name: nombre
+                type: varchar(45)
+                constraints:
+                  notNull: true

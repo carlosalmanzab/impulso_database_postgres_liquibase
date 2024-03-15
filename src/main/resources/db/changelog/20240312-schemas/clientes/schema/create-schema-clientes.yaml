@@ -1,0 +1,7 @@
+databaseChangeLog:
+- changeSet:
+    id: create-schema-clientes
+    author: carlos.alamnza
+    changes:
+       - sql:
+           sql: CREATE SCHEMA "clientes";

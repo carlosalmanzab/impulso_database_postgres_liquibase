@@ -1,0 +1,47 @@
+databaseChangeLog:
+- changeSet:
+    id: create-table-cartera
+    author: carlos.almanza
+    changes:
+     - createTable:
+         schemaName: clientes
+         tableName: cartera
+         columns:
+         - column:
+             name: id
+             type: SERIAL
+             constraints:
+               primaryKey: true
+         - column:
+             name: cliente_id
+             type: UUID
+             constraints:
+               notNull: true
+         - column:
+             name: deuda
+             type: decimal(18,2)
+             constraints:
+               notNull: true
+         - column:
+             name: fecha_creacion
+             type: timestamp
+             defaultValueComputed: CURRENT_TIMESTAMP
+         - column:
+             name: fecha_actualizacion
+             type: timestamp
+             defaultValueComputed: CURRENT_TIMESTAMP
+         - column:
+             name: fecha_inicio
+             type: timestamp
+             constraints:
+               notNull: true
+         - column:
+             name: fecha_fin
+             type: timestamp
+             constraints:
+               notNull: true
+         - column:
+             name: estatus
+             type: cartera.estatus
+
+        

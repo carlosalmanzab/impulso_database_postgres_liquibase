@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: trigger-update-fecha-actualizacion-in-inventario-stock-producto
+      author: carlos.almanza
+      changes:
+        - sql:
+            sql: |
+              CREATE TRIGGER trigger_update_fecha_actualizacion_in_inventario_stock_producto
+              BEFORE UPDATE ON "inventario"."stock_producto"
+              FOR EACH ROW EXECUTE FUNCTION update_fecha_actualizacion();

@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-municipio
+      author: carlos.alamnza
+      changes:
+       - createTable:
+           schemaName: "referenciales"
+           tableName: "municipio"
+           columns:
+            - column:
+                name: id
+                type: SERIAL
+                constraints:
+                  primaryKey: true
+            - column:
+                name: nombre
+                type: varchar
+                constraints:
+                  notNull: true
+            - column:
+                name: departamento_id
+                type: integer
+                constraints:
+                  notNull: true

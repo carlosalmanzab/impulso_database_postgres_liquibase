@@ -1,0 +1,7 @@
+databaseChangeLog:
+- include:
+    file: db/changelog/20240312-schemas/cartera/schema/create-schema-cartera.yaml
+- include:
+    file: db/changelog/20240312-schemas/cartera/enums/create-enum-estatus.yaml
+- include:
+    file: db/changelog/20240312-schemas/cartera/enums/create-enum-metodo_pago.yaml

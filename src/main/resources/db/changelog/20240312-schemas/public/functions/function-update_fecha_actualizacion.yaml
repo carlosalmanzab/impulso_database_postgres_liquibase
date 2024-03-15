@@ -1,0 +1,14 @@
+databaseChangeLog:
+- changeSet:
+    id: function-update-fecha-actualizacion-in-public
+    author: carlos.almanza
+    changes:
+       - sql:
+           sql: |
+             CREATE OR REPLACE FUNCTION update_fecha_actualizacion()
+             RETURNS trigger AS '
+             BEGIN
+                 NEW.fecha_actualizacion := CURRENT_TIMESTAMP;
+                 RETURN NEW;
+             END;
+             ' LANGUAGE plpgsql;

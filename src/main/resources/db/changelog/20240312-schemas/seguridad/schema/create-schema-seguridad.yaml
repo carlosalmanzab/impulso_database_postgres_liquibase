@@ -1,0 +1,7 @@
+databaseChangeLog:
+- changeSet:
+    id: create-schema-seguridad
+    author: carlos.almanza
+    changes:
+       - sql:
+           sql: CREATE SCHEMA "seguridad";

@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-enum-seguridad_roles
+      author: carlos.almanza
+      changes:
+       - sql:
+           sql: |
+             CREATE TYPE seguridad.roles AS ENUM (
+             'ADMIN',
+             'USER'); 

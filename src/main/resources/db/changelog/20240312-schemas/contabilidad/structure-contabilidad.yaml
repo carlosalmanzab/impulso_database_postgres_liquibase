@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/20240312-schemas/contabilidad/schema/create-schema-contabilidad.yaml
+  - include:
+      file: db/changelog/20240312-schemas/contabilidad/tables/create-table-movimientos_financieros.yaml
+  - include:
+      file: db/changelog/20240312-schemas/contabilidad/triggers/trigger-update_fecha_actualizacion_movientos_financieros.yaml

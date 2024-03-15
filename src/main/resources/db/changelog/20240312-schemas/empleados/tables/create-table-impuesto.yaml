@@ -1,0 +1,39 @@
+databaseChangeLog:
+- changeSet:
+    id: create-table-impuesto
+    author: carlos.alamnza
+    changes:
+    - createTable:
+        schemaName: empleados
+        tableName: impuesto
+        columns:
+        - column:
+            name: id
+            type: SERIAL
+            constraints:
+              primaryKey: true
+        - column:
+            name: nombre
+            type: VARCHAR(45)
+            constraints:
+              notNull: true
+        - column:
+            name: porcentaje
+            type: decimal(5,3)
+            constraints:
+              notNull: true
+        - column:
+            name: activo
+            type: bool
+            constraints:
+              defaultValue: true
+        - column:
+            name: fecha_creacion
+            type: timestamp
+            defaultValueComputed: CURRENT_TIMESTAMP
+        - column:
+            name: fecha_actualizacion
+            type: timestamp
+            defaultValueComputed: CURRENT_TIMESTAMP
+
+          

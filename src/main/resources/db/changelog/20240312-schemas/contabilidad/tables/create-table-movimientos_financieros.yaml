@@ -1,0 +1,42 @@
+databaseChangeLog:
+- changeSet:
+    id: create-table-movimientos_financieros
+    author: carlos.almanza
+    changes:
+    - createTable:
+        schemaName: contabilidad
+        tableName: movimientos_financieros
+        columns:
+        - column:
+            name: id
+            type: SERIAL
+            constraints:
+              primaryKey: true
+        - column:
+            name: concepto
+            type: VARCHAR(255)
+        - column:
+            name: ingreso
+            type: decimal(18,2)
+        - column:
+            name: egreso
+            type: decimal(18,2)
+        - column:
+            name: saldo
+            type: decimal(18,2)
+        - column:
+            name: fecha_creacion
+            type: timestamp
+            defaultValueComputed: CURRENT_TIMESTAMP
+        - column:
+            name: fecha_actualizacion
+            type: timestamp
+            defaultValueComputed: CURRENT_TIMESTAMP
+        - column:
+            name: elminado
+            type: boolean
+        - column:
+            name: usuario_id
+            type: UUID
+            constraints:
+              notNull: true

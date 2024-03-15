@@ -1,0 +1,199 @@
+databaseChangeLog:
+- changeSet:
+    id: alter-tables
+    author: carlos.almanza
+    changes:
+       - addForeignKeyConstraint:
+           baseTableSchemaName: empleados 
+           baseTableName: empleado
+           baseColumnNames: direccion_id
+           referencedTableSchemaName: referenciales 
+           referencedTableName: direccion
+           referencedColumnNames: id
+           constraintName: fk_empleado_direccion_id
+
+       - addForeignKeyConstraint:
+           baseTableSchemaName: clientes
+           baseTableName: cliente
+           baseColumnNames: direccion_id
+           referencedTableSchemaName: referenciales
+           referencedTableName: direccion
+           referencedColumnNames: id
+           constraintName: fk_cliente_direccion_id
+
+       - addForeignKeyConstraint:
+           baseTableSchemaName: clientes
+           baseTableName: cartera
+           baseColumnNames: cliente_id
+           referencedTableSchemaName: clientes
+           referencedTableName: cliente
+           referencedColumnNames: id
+           constraintName: fk_cartera_cliente_id
+       
+       - addForeignKeyConstraint:
+           baseTableSchemaName: clientes
+           baseTableName: pago
+           baseColumnNames: deuda_id
+           referencedTableSchemaName: clientes
+           referencedTableName: cartera
+           referencedColumnNames: id
+           constraintName: fk_pago_cartera_id
+       
+       - addForeignKeyConstraint:
+           baseTableSchemaName: inventario
+           baseTableName: materia_prima
+           baseColumnNames: usuario_id
+           referencedTableSchemaName: seguridad
+           referencedTableName: usuario
+           referencedColumnNames: id
+           constraintName: fk_materia_prima_usuario_id
+
+       - addForeignKeyConstraint:
+           baseTableSchemaName: inventario
+           baseTableName: stock_producto
+           baseColumnNames: usuario_id
+           referencedTableSchemaName: seguridad
+           referencedTableName: usuario
+           referencedColumnNames: id
+           constraintName: fk_stock_producto_usuario_id
+
+       - addForeignKeyConstraint:
+           baseTableSchemaName: contabilidad
+           baseTableName: movimientos_financieros
+           baseColumnNames: usuario_id
+           referencedTableSchemaName: seguridad
+           referencedTableName: usuario
+           referencedColumnNames: id
+           constraintName: fk_movimientos_financieros_usuario_id
+
+       - addForeignKeyConstraint:
+           baseTableSchemaName: empleados
+           baseTableName: nomina
+           baseColumnNames: empleado_id
+           referencedTableSchemaName: empleados
+           referencedTableName: empleado
+           referencedColumnNames: id
+           constraintName: fk_nomina_empleado_id
+
+       - addForeignKeyConstraint:
+           baseTableSchemaName: empleados
+           baseTableName: nominas_impuestos
+           baseColumnNames: nomina_id
+           referencedTableSchemaName: empleados
+           referencedTableName: nomina
+           referencedColumnNames: id
+           constraintName: fk_nominas_impuestos_nomina_id
+
+       - addForeignKeyConstraint:
+           baseTableSchemaName: empleados
+           baseTableName: nominas_impuestos
+           baseColumnNames: impuesto_id
+           referencedTableSchemaName: empleados
+           referencedTableName: impuesto
+           referencedColumnNames: id
+           constraintName: fk_nominas_impuestos_impuesto_id
+
+       - addForeignKeyConstraint:
+           baseTableSchemaName: referenciales
+           baseTableName: direccion
+           baseColumnNames: departamento_id
+           referencedTableSchemaName: referenciales
+           referencedTableName: departamento
+           referencedColumnNames: id
+           constraintName: fk_direcciones_departamento_id
+
+       - addForeignKeyConstraint:
+           baseTableSchemaName: referenciales
+           baseTableName: direccion
+           baseColumnNames: municipio_id
+           referencedTableSchemaName: referenciales
+           referencedTableName: municipio
+           referencedColumnNames: id
+           constraintName: fk_direcciones_municipio_id
+
+       - addForeignKeyConstraint:
+           baseTableSchemaName: referenciales
+           baseTableName: municipio
+           baseColumnNames: departamento_id
+           referencedTableSchemaName: referenciales
+           referencedTableName: departamento
+           referencedColumnNames: id
+           constraintName: fk_municipio_departamento_id
+
+       - sql:
+            sql: |
+              ALTER TABLE seguridad.usuario
+              ADD CONSTRAINT check_usuario_identificacion
+              CHECK (identificacion > 0);
+       
+       - sql:
+           sql: |
+             ALTER TABLE clientes.cliente
+             ADD CONSTRAINT check_cliente_identificacion
+             CHECK (identificacion > 0);
+
+       - sql:
+           sql: |
+             ALTER TABLE empleados.empleado
+             ADD CONSTRAINT check_empleado_identificacion
+             CHECK (identificacion > 0);
+
+       - sql: 
+           sql: |
+             ALTER TABLE clientes.cartera
+             ADD CONSTRAINT check_cartera_deuda
+             CHECK (deuda > 0);
+
+       - sql: 
+           sql: |
+             ALTER TABLE clientes.pago
+             ADD CONSTRAINT check_pago_valor_abono
+             CHECK (valor_abono > 0);
+       
+       - sql:
+           sql: |
+             ALTER TABLE inventario.materia_prima
+             ADD CONSTRAINT check_materia_prima_entrada
+             CHECK (entrada > 0);
+       
+       - sql:
+           sql: |
+             ALTER TABLE inventario.materia_prima
+             ADD CONSTRAINT check_materia_prima_salida
+             CHECK (salida > 0);
+       
+       - sql:
+           sql: |
+             ALTER TABLE inventario.stock_producto
+             ADD CONSTRAINT check_stock_producto_entrada
+             CHECK (entrada > 0);
+
+       - sql:
+           sql: |
+             ALTER TABLE inventario.stock_producto
+             ADD CONSTRAINT check_stock_producto_salida
+             CHECK (salida > 0);
+
+       - sql:
+           sql: |
+             ALTER TABLE contabilidad.movimientos_financieros
+             ADD CONSTRAINT check_movimientos_financieros_ingreso
+             CHECK (ingreso > 0);
+
+       - sql:
+           sql: |
+             ALTER TABLE contabilidad.movimientos_financieros
+             ADD CONSTRAINT check_movimientos_financieros_egreso
+             CHECK (egreso > 0);
+
+       - sql:
+           sql: |
+             ALTER TABLE empleados.nomina
+             ADD CONSTRAINT check_nomina_salario_base
+             CHECK (salario_base > 0);
+
+       - sql:
+           sql: |
+             ALTER TABLE empleados.impuesto
+                ADD CONSTRAINT check_impuesto_porcentaje
+                CHECK (porcentaje > 0);

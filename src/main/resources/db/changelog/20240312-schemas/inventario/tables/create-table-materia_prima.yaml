@@ -1,0 +1,42 @@
+databaseChangeLog:
+- changeSet:
+    id: create-table-materia_prima
+    author: carlos.almanza
+    changes:
+    - createTable:
+        schemaName: "inventario"
+        tableName: "materia_prima"
+        columns:
+        - column:
+            name: id
+            type: SERIAL
+            constraints:
+              primaryKey: true
+        - column:
+            name: articulo
+            type: VARCHAR(255)
+        - column:
+            name: entrada
+            type: decimal
+        - column:
+            name: salida
+            type: decimal
+        - column:
+            name: stock
+            type: decimal
+        - column:
+            name: fecha_creacion
+            type: timestamp
+            defaultValueComputed: CURRENT_TIMESTAMP
+        - column:
+            name: fecha_actualizacion
+            type: timestamp
+            defaultValueComputed: CURRENT_TIMESTAMP
+        - column:
+            name: elminado
+            type: boolean
+        - column:
+            name: usuario_id
+            type: UUID
+            constraints:
+              notNull: true

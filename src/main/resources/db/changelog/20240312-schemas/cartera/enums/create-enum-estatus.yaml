@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-enum-estatus
+      author: carlos.alamnza
+      changes:
+       - sql:
+           sql: |
+            CREATE TYPE "cartera"."estatus" AS ENUM (
+                'PENDIENTE',
+                'VENCIDO',
+                'CANCELADO');

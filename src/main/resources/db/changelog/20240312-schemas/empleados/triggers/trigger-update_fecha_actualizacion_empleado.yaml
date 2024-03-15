@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: trigger-update-fecha-actualizacion-in-empleados-empleado
+      author: carlos.almanza
+      changes:
+       - sql:
+           sql: |
+             CREATE TRIGGER trigger_update_fecha_actualizacion_in_empleados_empleado
+             BEFORE UPDATE ON "empleados"."empleado"
+             FOR EACH ROW EXECUTE FUNCTION update_fecha_actualizacion();

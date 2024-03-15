@@ -1,0 +1,32 @@
+databaseChangeLog:
+- changeSet:
+    id: create-table-pago
+    author: carlos.almanza
+    changes:
+     - createTable:
+         schemaName: clientes
+         tableName: pago
+         columns:
+         - column:
+             name: id
+             type: SERIAL
+             constraints:
+               primaryKey: true
+         - column:
+             name: valor_abono
+             type: decimal(10,2)
+         - column:
+             name: metodo_pago
+             type: cartera.metodo_pago
+         - column:
+             name: fecha_creacion
+             type: timestamp
+             defaultValueComputed: CURRENT_TIMESTAMP
+         - column:
+             name: fecha_actualizacion
+             type: timestamp
+             defaultValueComputed: CURRENT_TIMESTAMP
+         - column:
+             name: deuda_id
+             type: integer
+        
