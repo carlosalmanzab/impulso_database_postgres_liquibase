@@ -53,12 +53,12 @@ jobs:
                   context: .
                   file: ./Dockerfile
                   build-args: |
-                    APP_PORT=8080
-                    DATABASE_HOST={{ services.postgres.env.POSTGRES_HOST }}
-                    DATABASE_PORT={{ services.postgres.ports[0] }}  # Access port using index
-                    DATABASE_NAME={{ services.postgres.env.POSTGRES_DB }}
-                    DATABASE_USERNAME={{ services.postgres.env.POSTGRES_USER }}
-                    DATABASE_PASSWORD={{ services.postgres.env.POSTGRES_PASSWORD }}
+                    "APP_PORT=8080"
+                    "DATABASE_HOST=${ services.postgres.env.POSTGRES_HOST }"
+                    "DATABASE_PORT=${ services.postgres.ports[0] }"
+                    "DATABASE_NAME=${ services.postgres.env.POSTGRES_DB }"
+                    "DATABASE_USERNAME=${ services.postgres.env.POSTGRES_USER }"
+                    "DATABASE_PASSWORD=${ services.postgres.env.POSTGRES_PASSWORD }"
                   push: true
                   tags: ${{ steps.meta.outputs.tags }}
                   labels: ${{ steps.meta.outputs.labels }}
