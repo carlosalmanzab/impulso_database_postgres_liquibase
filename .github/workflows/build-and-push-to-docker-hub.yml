@@ -8,7 +8,7 @@ on:
 jobs:
     push_to_docker_hub:
         environment: dockerhub
-        name: Psuh docker image to Docker Hub   
+        name: Push docker image to Docker Hub   
         runs-on: ubuntu-latest
         services:
             postgres:
@@ -54,7 +54,7 @@ jobs:
                   file: ./Dockerfile
                   build-args: |
                     "APP_PORT=8080"
-                    "DATABASE_HOST=localhost"
+                    "DATABASE_HOST=172.17.0.1"
                     "DATABASE_PORT=5432"
                     "DATABASE_NAME=impulso_prod"
                     "DATABASE_USERNAME=postgres"
