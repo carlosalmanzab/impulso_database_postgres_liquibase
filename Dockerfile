@@ -14,7 +14,7 @@ WORKDIR /app
 
 COPY src/main/resources /app/resources
 
-ARG JAR_FILE = target/*.jar
+ARG JAR_FILE=target/*.jar
 
 COPY --from=mvn /app/target/${JAR_FILE} impulso-bd-liquibase.jar
 ENTRYPOINT ["java","-jar","impulso-bd-liquibase.jar"]
