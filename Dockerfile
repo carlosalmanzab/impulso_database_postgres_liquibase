@@ -1,25 +1,24 @@
-#CREATE DEV DATABASE
-FROM postgres:14.3-alpine AS db
-
-ENV POSTGRES_DB=impulso_prod
-ENV POSTGRES_USER=postgres
-ENV POSTGRES_PASSWORD=password
-
-WORKDIR /app
-
-RUN echo "CREATE DATABASE {$POSTGRES_DB};" | psql -U $POSTGRES_USER
 
 #BUILD APP
-ENV DATABASE_HOST=localhost
-ENV DATABASE_PORT=5432
-ENV DATABASE_NAME=${POSTGRES_DB}
-ENV DATABASE_USERNAME=${POSTGRES_USER}
-ENV DATABASE_PASSWORD=${POSTGRES_PASSWORD}
-
-FROM maven:3-eclipse-temurin-17-alpine AS mvn 
+FROM maven:3-eclipse-temurin-17-alpine AS mvn
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
+
+ARG APP_PORT
+ARG DATABASE_HOST
+ARG DATABASE_PORT
+ARG DATABASE_NAME
+ARG DATABASE_USERNAME
+ARG DATABASE_PASSWORD
+ENV APP_PORT=$APP_PORT
+ENV DATABASE_HOST=$DATABASE_HOST
+ENV DATABASE_PORT=$DATABASE_PORT
+ENV DATABASE_NAME=$DATABASE_NAME
+ENV DATABASE_USERNAME=$DATABASE_USERNAME
+ENV DATABASE_PASSWORD=$DATABASE_PASSWORD
+
+
 RUN mvn -e -B package -P prod
 
 
@@ -33,11 +32,5 @@ WORKDIR /app
 
 COPY src/main/resources /app/resources
 
-ARG JAR_FILE=target/*.jar
-
-COPY --from=mvn /app/target/${JAR_FILE} impulso-bd-liquibase.jar
+COPY --from=mvn /app/target/impulso_database_postgres_liquibase-0.0.1-SNAPSHOT.jar impulso-bd-liquibase.jar
 ENTRYPOINT ["java","-jar","impulso-bd-liquibase.jar"]
-
-#DELETE DATABASE
-WORKDIR /app
-RUN echo "DROP DATABASE {$POSTGRES_DB};" | psql -U $POSTGRES_USER

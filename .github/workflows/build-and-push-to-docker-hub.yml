@@ -10,6 +10,21 @@ jobs:
         environment: dockerhub
         name: Psuh docker image to Docker Hub   
         runs-on: ubuntu-latest
+        services:
+            postgres:
+                image: postgres
+                options: >-
+                    --health-cmd pg_isready
+                    --health-interval 10s
+                    --health-timeout 5s
+                    --health-retries 5
+
+                env:
+                    POSTGRES_USER: postgres
+                    POSTGRES_PASSWORD: postgres
+                    POSTGRES_DB: impulso_prod
+                ports:
+                    - 5432:5432
         steps:
             - name: Check out the repo
               uses: actions/checkout@v4
@@ -37,6 +52,13 @@ jobs:
               with:
                   context: .
                   file: ./Dockerfile
+                  build-args: |
+                    APP_PORT=8080
+                    DATABASE_HOST={{ services.postgres.env.POSTGRES_HOST }}
+                    DATABASE_PORT={{ services.postgres.ports[0] }}  # Access port using index
+                    DATABASE_NAME={{ services.postgres.env.POSTGRES_DB }}
+                    DATABASE_USERNAME={{ services.postgres.env.POSTGRES_USER }}
+                    DATABASE_PASSWORD={{ services.postgres.env.POSTGRES_PASSWORD }}
                   push: true
                   tags: ${{ steps.meta.outputs.tags }}
                   labels: ${{ steps.meta.outputs.labels }}

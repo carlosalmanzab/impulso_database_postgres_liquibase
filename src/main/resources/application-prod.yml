@@ -4,7 +4,7 @@ logging:
       hibernate:
         SQL: debug
 server:
-  port: 8077
+  port: ${APP_PORT}
 spring:
   config:
     activate:
