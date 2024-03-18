@@ -54,11 +54,11 @@ jobs:
                   file: ./Dockerfile
                   build-args: |
                     "APP_PORT=8080"
-                    "DATABASE_HOST=${ services.postgres.env.POSTGRES_HOST }"
-                    "DATABASE_PORT=${ services.postgres.ports[0] }"
-                    "DATABASE_NAME=${ services.postgres.env.POSTGRES_DB }"
-                    "DATABASE_USERNAME=${ services.postgres.env.POSTGRES_USER }"
-                    "DATABASE_PASSWORD=${ services.postgres.env.POSTGRES_PASSWORD }"
+                    "DATABASE_HOST=localhost"
+                    "DATABASE_PORT=5432"
+                    "DATABASE_NAME=impulso_prod"
+                    "DATABASE_USERNAME=postgres"
+                    "DATABASE_PASSWORD=postgres"
                   push: true
                   tags: ${{ steps.meta.outputs.tags }}
                   labels: ${{ steps.meta.outputs.labels }}
