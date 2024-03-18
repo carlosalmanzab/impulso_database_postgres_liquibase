@@ -1,0 +1,25 @@
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+server:
+  port: 8077
+spring:
+  config:
+    activate:
+      on-profile: prod
+  application:
+    name: "Impulso Database: PROD"
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-main.yaml
