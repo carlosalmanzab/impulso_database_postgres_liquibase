@@ -1,0 +1,34 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+    build-and-push:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Build and Push to Github Packages
+              uses: docker/build-push-action@v2
+              with:
+                registry: docker.pkg.github.com
+                username: ${{ github.repository_owner }}
+                password: ${{ secrets.REPO_TOKEN }}
+                image-name: ${{ github.repository }}
+                image-tag: ${{ github.sha }}
+
+            - name: Build and Push to Docker Hub
+              uses: docker/build-push-action@v2
+              with:
+                username: ${{ secrets.DOCKER_HUB_USERNAME }}
+                password: ${{ secrets.DOCKER_HUB_TOKEN }}
+                image-name: ${{ github.repository }}
+                image-tag: ${{ github.sha }}
