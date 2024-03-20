@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: alter-table-seguridad-usuario
+      id: alter-table-seguridad-usuario-add-eliminado
       author: carlos.almanza
       changes:
         - sql:

@@ -5,3 +5,6 @@ databaseChangeLog:
   - include: 
       author: carlos.almanza
       file: db/changelog/20240319-changelog.yaml
+  - include: 
+      author: carlos.almanza
+      file: db/changelog/20240320-changelog.yaml
