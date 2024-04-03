@@ -78,6 +78,33 @@
 						</filtering>
 						<excludes>
 							<exclude>application-prod.yml</exclude>
+							<exclude>application-test.yml</exclude>
+						</excludes>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+		<profile>
+			<id>test</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<build.profile.id>test</build.profile.id>
+				<profileActive>test</profileActive>
+			</properties>
+			<build>
+				<resources>
+					<resource>
+						<directory>
+							src/main/resources
+						</directory>
+						<filtering>
+							true
+						</filtering>
+						<excludes>
+							<exclude>application-dev.yml</exclude>
+							<exclude>application-prod.yml</exclude>
 						</excludes>
 					</resource>
 				</resources>
@@ -103,6 +130,7 @@
 						</filtering>
 						<excludes>
 							<exclude>application-dev.yml</exclude>
+							<exclude>application-test.yml</exclude>
 						</excludes>
 					</resource>
 				</resources>
