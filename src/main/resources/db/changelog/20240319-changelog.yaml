@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: alter-table-seguridad-usuario-add-eliminado
+      author: carlos.almanza
+      changes:
+        - sql:
+            sql: ALTER TABLE seguridad."usuario" ADD COLUMN IF NOT EXISTS eliminado boolean DEFAULT false;
+      

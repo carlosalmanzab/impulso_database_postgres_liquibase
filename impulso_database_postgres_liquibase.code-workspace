@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"name": "impulso_database_postgres_liquibase",
+			"path": "."
+		}
+	],
+	"settings": {
+		"conventionalCommits.scopes": [
+			"scheme",
+			"README",
+			"change-log"
+		],
+		"yaml.schemas": {
+			"https://json.schemastore.org/liquibase-3.2.json": "file:///c%3A/Users/alman/Repository/impulso_database_postgres_liquibase/src/main/resources/db/changelog/schemas/clientes/create-schema-clientes.yaml"
+		},
+		"java.configuration.updateBuildConfiguration": "interactive",
+		"java.compile.nullAnalysis.mode": "automatic"
+	}
+}

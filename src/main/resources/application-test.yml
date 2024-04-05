@@ -4,15 +4,15 @@ logging:
       hibernate:
         SQL: debug
 server:
-  port: 8076
+  port: 8077
 spring:
   config:
     activate:
-      on-profile: dev
+      on-profile: test
   application:
-    name: "Impulso Database: DEV"
+    name: "Impulso Database: TEST"
   datasource:
-    url: jdbc:postgresql://localhost:5432/impulso_db_development
+    url: jdbc:postgresql://localhost:5432/impulso_db_test
     username: postgres
     password: coffee2sweet
     driver-class-name: org.postgresql.Driver
@@ -20,6 +20,3 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
-  liquibase:
-    enabled: true
-    change-log: classpath:/db/changelog/db.changelog-main.yaml

@@ -1,0 +1,7 @@
+databaseChangeLog:
+- changeSet: 
+    id: alter-table-seguridad-usuario-add-unique-constraint-correo-electronico
+    author: "carlos.almanza"
+    changes:
+      - sql: 
+          sql: ALTER TABLE seguridad."usuario" ADD CONSTRAINT unique_constraint_correo_electronico UNIQUE (correo_electronico);
