@@ -32,5 +32,5 @@ WORKDIR /app
 
 COPY src/main/resources /app/resources
 
-COPY --from=mvn /app/target/impulso_database_postgres_liquibase-0.0.1-SNAPSHOT.jar impulso-bd-liquibase.jar
+COPY --from=mvn /app/target/impulso_database_postgres_liquibase-1.0.0.jar impulso-bd-liquibase.jar
 ENTRYPOINT ["java","-jar","impulso-bd-liquibase.jar"]
