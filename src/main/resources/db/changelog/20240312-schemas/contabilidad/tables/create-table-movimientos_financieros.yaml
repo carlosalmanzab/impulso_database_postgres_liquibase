@@ -15,6 +15,8 @@ databaseChangeLog:
         - column:
             name: concepto
             type: VARCHAR(255)
+            constraints:
+              nullable: false
         - column:
             name: ingreso
             type: decimal(18,2)
@@ -39,4 +41,4 @@ databaseChangeLog:
             name: usuario_id
             type: UUID
             constraints:
-              notNull: true
+              nullable: false

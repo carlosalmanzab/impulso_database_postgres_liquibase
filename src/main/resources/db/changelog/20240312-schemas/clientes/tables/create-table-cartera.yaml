@@ -16,12 +16,12 @@ databaseChangeLog:
              name: cliente_id
              type: UUID
              constraints:
-               notNull: true
+               nullable: false
          - column:
              name: deuda
              type: decimal(18,2)
              constraints:
-               notNull: true
+               nullable: false
          - column:
              name: fecha_creacion
              type: timestamp
@@ -34,12 +34,12 @@ databaseChangeLog:
              name: fecha_inicio
              type: timestamp
              constraints:
-               notNull: true
+               nullable: false
          - column:
              name: fecha_fin
              type: timestamp
              constraints:
-               notNull: true
+               nullable: false
          - column:
              name: estatus
              type: cartera.estatus

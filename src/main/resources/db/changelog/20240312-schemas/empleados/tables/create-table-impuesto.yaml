@@ -16,7 +16,7 @@ databaseChangeLog:
             name: nombre
             type: VARCHAR(45)
             constraints:
-              notNull: true
+              nullable: false
         - column:
             name: porcentaje
             type: decimal(5,3)

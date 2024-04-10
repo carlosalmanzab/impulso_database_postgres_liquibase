@@ -22,12 +22,12 @@ databaseChangeLog:
             name: tipo_identificacion
             type: referenciales.tipo_identificacion
             constraints:
-              notNull: true
+              nullable: false
         - column:
             name: primer_nombre
             type: varchar(45)
             constraints:
-              notNull: true
+              nullable: false
         - column:
             name: segundo_nombre
             type: varchar(45)
@@ -35,7 +35,7 @@ databaseChangeLog:
             name: primer_apellido
             type: varchar(45)
             constraints:
-              notNull: true
+              nullable: false
         - column:
             name: segundo_apellido
             type: varchar(45)
@@ -43,7 +43,7 @@ databaseChangeLog:
             name: numero_telefono
             type: varchar(45)
             constraints:
-              unique: true
+              nullable: false
         - column:
             name: correo
             type: varchar(45)
@@ -51,7 +51,7 @@ databaseChangeLog:
             name: direccion_id
             type: integer
             constraints:
-              notNull: true
+              nullable: false
         - column:
             name: fecha_creacion
             type: timestamp
