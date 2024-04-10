@@ -93,32 +93,32 @@ databaseChangeLog:
            referencedColumnNames: id
            constraintName: fk_nominas_impuestos_impuesto_id
 
-       - addForeignKeyConstraint:
-           baseTableSchemaName: referenciales
-           baseTableName: direccion
-           baseColumnNames: departamento_id
-           referencedTableSchemaName: referenciales
-           referencedTableName: departamento
-           referencedColumnNames: id
-           constraintName: fk_direcciones_departamento_id
+    #    - addForeignKeyConstraint:
+    #        baseTableSchemaName: referenciales
+    #        baseTableName: direccion
+    #        baseColumnNames: departamento_id
+    #        referencedTableSchemaName: referenciales
+    #        referencedTableName: departamento
+    #        referencedColumnNames: id
+    #        constraintName: fk_direcciones_departamento_id
 
-       - addForeignKeyConstraint:
-           baseTableSchemaName: referenciales
-           baseTableName: direccion
-           baseColumnNames: municipio_id
-           referencedTableSchemaName: referenciales
-           referencedTableName: municipio
-           referencedColumnNames: id
-           constraintName: fk_direcciones_municipio_id
+    #    - addForeignKeyConstraint:
+    #        baseTableSchemaName: referenciales
+    #        baseTableName: direccion
+    #        baseColumnNames: municipio_id
+    #        referencedTableSchemaName: referenciales
+    #        referencedTableName: municipio
+    #        referencedColumnNames: id
+    #        constraintName: fk_direcciones_municipio_id
 
-       - addForeignKeyConstraint:
-           baseTableSchemaName: referenciales
-           baseTableName: municipio
-           baseColumnNames: departamento_id
-           referencedTableSchemaName: referenciales
-           referencedTableName: departamento
-           referencedColumnNames: id
-           constraintName: fk_municipio_departamento_id
+    #    - addForeignKeyConstraint:
+    #        baseTableSchemaName: referenciales
+    #        baseTableName: municipio
+    #        baseColumnNames: departamento_id
+    #        referencedTableSchemaName: referenciales
+    #        referencedTableName: departamento
+    #        referencedColumnNames: id
+    #        constraintName: fk_municipio_departamento_id
 
        - sql:
             sql: |
@@ -197,3 +197,15 @@ databaseChangeLog:
              ALTER TABLE empleados.impuesto
                 ADD CONSTRAINT check_impuesto_porcentaje
                 CHECK (porcentaje > 0);
+
+       - sql:
+          sql: |
+            ALTER TABLE referenciales.direccion
+            ADD CONSTRAINT check_departamento_NOT_BLANK
+            CHECK (departamento <> '');
+
+       - sql:
+          sql: |
+            ALTER TABLE referenciales.direccion
+            ADD CONSTRAINT check_municipio_NOT_BLANK
+            CHECK (municipio <> '');

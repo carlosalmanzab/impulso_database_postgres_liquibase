@@ -25,7 +25,7 @@ databaseChangeLog:
                  name: primer_nombre
                  type: varchar
                  constraints:
-                  notNull: true
+                  nullable: false
              - column:
                  name: segundo_nombre
                  type: varchar
@@ -33,7 +33,7 @@ databaseChangeLog:
                  name: primer_apellido
                  type: varchar
                  constraints:
-                  notNull: true
+                  nullable: false
              - column:
                  name: segundo_apellido
                  type: varchar
@@ -58,7 +58,7 @@ databaseChangeLog:
                  name: password
                  type: varchar
                  constraints:
-                   notNull: true
+                   nullable: false
              - column:
                  name: fecha_creacion
                  type: timestamp

@@ -16,17 +16,27 @@ databaseChangeLog:
              name: calle
              type: varchar(255)
              constraints:
-               notNull: true
-         - column:
-             name: departamento_id
-             type: integer
-             constraints:
-               notNull: true
+               nullable: false
          - column:
              name: municipio_id
              type: integer
              constraints:
-               notNull: true
+               nullable: false
+         - column:
+             name: municipio
+             type: varchar(45)
+             constraints:
+               nullable: false
+         - column:
+             name: departamento_id
+             type: integer
+             constraints:
+               nullable: false
+         - column:
+             name: departamento
+             type: varchar(45)
+             constraints:
+               nullable: false
          - column:
              name: fecha_creacion
              type: timestamp
