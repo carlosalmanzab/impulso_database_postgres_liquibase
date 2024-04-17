@@ -13,6 +13,11 @@ databaseChangeLog:
             constraints:
               primaryKey: true
         - column:
+            name: grupo
+            type: VARCHAR(255)
+            constraints:
+              nullable: false
+        - column:
             name: articulo
             type: VARCHAR(255)
         - column:
@@ -20,9 +25,6 @@ databaseChangeLog:
             type: decimal
         - column:
             name: salida
-            type: decimal
-        - column:
-            name: stock
             type: decimal
         - column:
             name: fecha_creacion

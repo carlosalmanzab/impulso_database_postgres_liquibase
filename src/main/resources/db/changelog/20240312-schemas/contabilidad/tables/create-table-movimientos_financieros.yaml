@@ -13,6 +13,11 @@ databaseChangeLog:
             constraints:
               primaryKey: true
         - column:
+            name: grupo
+            type: VARCHAR(255)
+            constraints:
+              nullable: false
+        - column:
             name: concepto
             type: VARCHAR(255)
             constraints:
@@ -22,9 +27,6 @@ databaseChangeLog:
             type: decimal(18,2)
         - column:
             name: egreso
-            type: decimal(18,2)
-        - column:
-            name: saldo
             type: decimal(18,2)
         - column:
             name: fecha_creacion
